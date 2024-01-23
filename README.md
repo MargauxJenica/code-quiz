@@ -6,7 +6,7 @@ For this project I created a multiple choice coding quiz webpage.
 
     C1. Clicked start button prompts user first question and begins quiz timer
     C2. Another question is prompted, after answering previous question
-    C3. If question is answered incorrectly, extra time is docked from clock
+    C3. If question is answered incorrectly, time is docked from clock
     C4. Game over when all questions are answered or time runs out
     C5. Once Game is over, user can save score along with their initials
 
