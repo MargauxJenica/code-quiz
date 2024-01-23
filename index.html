@@ -26,31 +26,42 @@
         
         <!-- Quiz Window -->
         <div class="quizWindow">
+
             <h2 id="timer">TIME: </h2>
             <h2 id="userScore"> SCORE: </h2>
             <h2 id="question"><!-- question displayed here --></h2>
-        <div>
-        <!-- Multiple Choice Options -->
-        <form>
-            <ul id="questions"></ulid>>
-                <button id="choice1"></button>
-                <button id="choice2"></button>
-                <button id="choice3"></button> 
-               <button id="choice4"></button>
-            </ul>
-        </form>
+
+            <!-- Multiple Choice Options -->
+            <form>
+                <ul id="questions"></ulid>>
+                    <button id="choice1"></button>
+                    <button id="choice2"></button>
+                    <button id="choice3"></button> 
+                <button id="choice4"></button>
+                </ul>
+            </form>
+
+            <!-- Letting the user know if their choice was correct/incorrect -->
+            <p id="verifyUserChoice"> </p>
+
+        </div>    
+
         <!-- User Results and Data Entry -->
         <div class="quizResults-window">
+
             <h2>Quiz Results</h2>
             <p id="quizResults"><span id="userScore"></span> Points</p>
             <input type="text" id="userInitials" placeholder="Enter your initials">
+
         </div>
         <!-- Top Score Board -->
         <div class="topScoreBoard">
+
             <h2>Top Score Board</h2>
             <ul id="topScores"></ul>
             <button id="exitScoreBoard">Return to Homepage</button>
             <button id="clearScoreBoard">Clear</button>
+
         </div>
     </main>
     <footer>
