@@ -1,0 +1,11 @@
+/* Class Attributes */
+.quizWindow{
+    display: none;
+}
+.quizResults-window{
+    display: none;
+}
+.topScoreBoard{
+    display: none;
+}
+/* ID Attributes*/
