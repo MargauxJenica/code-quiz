@@ -21,25 +21,21 @@
             <p>This a timed quiz that will test your knowledge of HTML, CSS, and JavaScipt. 
                 Time will be deducted for each incorrect answer. Click "Begin Quiz" to start. Best of luck!</p>
             <!-- Buttons to begin quiz or view the score board -->
-            <button id="startBtn">Begin Quiz</button>
-            <button id="scoreBoard">Score Board</button>
+            <button id="start-Btn">Begin Quiz</button>
+            <button id="scoreBoard-Btn">Score Board</button>
         </div>
         
         <!-- Quiz Window -->
         <div class="quizWindow" data-state="hidden">
 
-            <h2 id="timerCount">TIME: </h2>
-            <h2 id="userScore"> SCORE: </h2>
+            <h2>TIME: <span id="timerCount">  </span> </h2>
+            <h2> SCORE: <span class="userScore"> 0 </span> </h2>
             <h2 id="question"><!-- question displayed here --></h2>
 
             <!-- Multiple Choice Options -->
             <form>
-                <h2 id="question"></h2>
-                <ul id="choices"></ul>
-                    <button id="choice1"></button>
-                    <button id="choice2"></button>
-                    <button id="choice3"></button> 
-                    <button id="choice4"></button>
+                <ul id="choiceList">
+                   <!-- dynamically create list of buttons as choices -->
                 </ul>
             </form>
 
@@ -52,7 +48,7 @@
         <div class="quizResults-window">
 
             <h2>Quiz Results</h2>
-            <p id="quizResults"><span id="userScore"></span> Points</p>
+            <p id="quizResults"><span class="userScore"></span> Points</p>
             <input type="text" id="userInitials" placeholder="Enter your initials">
 
         </div>
@@ -62,8 +58,8 @@
 
             <h2>Top Score Board</h2>
             <ul id="topScores"></ul>
-            <button id="exitScoreBoard">Return to Homepage</button>
-            <button id="clearScoreBoard">Clear</button>
+            <button id="exitScoreBoard-Btn">Return to Homepage</button>
+            <button id="clearScoreBoard-Btn">Clear</button>
 
         </div>
     </main>
