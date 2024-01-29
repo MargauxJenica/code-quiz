@@ -26,10 +26,10 @@
         </div>
         
         <!-- Quiz Window -->
-        <div class="quizWindow" data-state="hidden">
+        <div class="quiz-Window" data-state="hidden">
 
             <h2>TIME: <span id="timerCount">  </span> </h2>
-            <h2> SCORE: <span class="userScore"> 0 </span> </h2>
+            <h2> SCORE: <span id="currentScore"> 0 </span> </h2>
             <h2 id="question"><!-- question displayed here --></h2>
 
             <!-- Multiple Choice Options -->
@@ -45,10 +45,10 @@
         </div>    
 
         <!-- User Results and Data Entry -->
-        <div class="quizResults-window">
+        <div class="quizResults-Window">
 
             <h2>Quiz Results</h2>
-            <p id="quizResults"><span class="userScore"></span> Points</p>
+            <p id="quizResults">You scored <span id="userScore"></span> points!</p>
             <input type="text" id="userInitials" placeholder="Enter your initials">
 
         </div>

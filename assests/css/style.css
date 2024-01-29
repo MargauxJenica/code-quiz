@@ -1,8 +1,8 @@
 /* Class Attributes */
-.quizWindow{
+.quiz-Window{
     display: none;
 }
-.quizResults-window{
+.quizResults-Window{
     display: none;
 }
 .topScoreBoard{

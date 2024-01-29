@@ -4,7 +4,7 @@
 var startPage = document.querySelector(".startPage");
 var startBtn = document.getElementById("start-Btn");
 var scoreBoardBtn = document.getElementById("scoreBoard-Btn");
-var quizWindow = document.querySelector(".quizWindow");
+var quizWindow = document.querySelector(".quiz-Window");
 var countdown = document.getElementById("timeCount");
 var topScoreBoard = document.querySelector(".topScoreBoard");
 var exitScoreBoardBtn = document.getElementById("exitScoreBoard-Btn");
@@ -12,14 +12,14 @@ var clearScoreBoardBtn = document.getElementById("clearScoreBoard-Btn");
 var verifyUserChoice = document.getElementById("verifyUserChoice");
 var question = document.getElementById("question");
 var choiceList = document.getElementById("choiceList");
-var userScore = document.querySelector(".userScore");
+var userScore = document.getElementById("userScore");
 var timerCount = document.getElementById("timerCount");
-var quizResultsWindow
+var currentScore = document.getElementById("currentScore");
+var quizResultsWindow = document.querySelector(".quizResults-Window");
 //------------------------------------------------------------------------------//
 //                                Variables                                     //
 //------------------------------------------------------------------------------//
-userScore = 0;
-var currentScore = 0;
+var scoreCount = 0;
 var time = 60;
 var questionIndex = 0;
 var quizQuestions = [
@@ -154,10 +154,10 @@ function verifyAnswer(userChoice, correctAnswer){
     if (userChoice === correctAnswer) {
         console.log("Correct!");
 
-        currentScore++;
+        scoreCount++;
 
-        userScore.textContent = currentScore;
-        console.log("The score is " + currentScore);
+        currentScore.textContent = scoreCount;
+        console.log("The score is " + userScore);
         
     } else {
         console.log("Incorrect!");
@@ -171,7 +171,9 @@ function verifyAnswer(userChoice, correctAnswer){
 };
 
 function resultsWindow(){
-
+    quizWindow.style.display = "none";
+    quizResultsWindow.style.display = "block";
+    userScore.textContent = scoreCount;
 };
 function displayScoreBoard(){
     startPage.style.display = "none";
