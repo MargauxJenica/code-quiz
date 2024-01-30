@@ -1,5 +1,5 @@
 /* Class Attributes */
-.quiz-Window{
+/* .quiz-Window{
     display: none;
 }
 .quizResults-Window{
@@ -7,10 +7,11 @@
 }
 .topScoreBoard{
     display: none;
-}
+} */
 /* ID Attributes*/
 #choiceList li{
    padding: 5px;
+   list-style-type: none;
 }
 #choiceList button{
     display: block;
