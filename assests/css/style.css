@@ -1,27 +1,52 @@
 /* Class Attributes */
-/* .quiz-Window{
-    display: none;
+body,
+html{
+    margin: 0;
+    padding: 0;
 }
-.quizResults-Window{
-    display: none;
-}
-.topScoreBoard{
-    display: none;
-} */
-/* ID Attributes*/
-#choiceList li{
-   padding: 5px;
-   list-style-type: none;
-}
-#choiceList button{
-    display: block;
+
+header{
     width: 100%;
-    /* padding: 10px;
-    margin-bottom: 10px; */
+    padding: 10px;
+}
+.quiz-Window {
+    align-items: center;
     text-align: center;
-    border: none;
+}
+
+/* ID Attributes*/
+#timerCount {
+    display: inline;
+}
+
+#currentScore {
+    display: inline;
+}
+
+#question {
+    text-align: center;
+}
+
+#choiceList li {
+    padding: 5px;
+    list-style-type: none;
+}
+
+#choiceList button {
+    /* display: block; */
+    text-align: center;
+    height: 50%;
+    width: 50%;
     border-radius: 5px;
-    background-color: #007bff; 
-    color: #ffffff; 
+    border: 2px solid purple;
     cursor: pointer;
+}
+
+#choiceList button:hover {
+    background-color: rgba(201, 129, 201, 0.676);
+    color: white;
+    font-weight: bold;
+}
+#topScores {
+    list-style-type: ;
 }

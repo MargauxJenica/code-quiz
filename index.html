@@ -16,7 +16,7 @@
     <main>
         <!-- Start Page Window -->
         <div class="startPage">
-            <h2 class="welcome">Welcome to the Web Development Quiz</h2>
+            <h2>Welcome to the Web Development Quiz</h2>
 
             <p>This a timed quiz that will test your knowledge of HTML, CSS, and JavaScipt. 
                 Time will be deducted for each incorrect answer. Click "Begin Quiz" to start. Best of luck!</p>
@@ -26,19 +26,17 @@
         </div>
         
         <!-- Quiz Window -->
-        <div class="quiz-Window" data-state="hidden">
+        <div id="quiz-Window">
 
-            <h2>TIME: <span id="timerCount">  </span> </h2>
-            <h2> SCORE: <span id="currentScore"> 0 </span> </h2>
-            <h2 id="question"><!-- question displayed here --></h2>
+            <p>TIME: <span id="timerCount"></span> </p>
+            <p> SCORE: <span id="currentScore">0</span> </p>
+            <h3 id="currentQuestion"> <!-- question displayed here --> </h3>
 
             <!-- Multiple Choice Options -->
-            <form>
-                <ul id="choiceList">
-                   <!-- dynamically create list of buttons as choices -->
-                </ul>
-            </form>
-
+            <ul id="choiceList">
+                <!-- dynamically create list of buttons as choices -->
+            </ul>
+            
             <!-- Letting the user know if their choice was correct/incorrect -->
             <p id="verifyUserChoice"> </p>
 
@@ -61,7 +59,7 @@
         <div class="topScoreBoard">
 
             <h4>Top Score Board</h4>
-            <ul id="topScores"></ul>
+            <ol id="topScores"></ol>
             <button id="exitScoreBoard-Btn">Return to Homepage</button>
             <button id="clearScoreBoard-Btn">Clear</button>
 
