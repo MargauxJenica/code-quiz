@@ -143,6 +143,14 @@ function displayQuiz() { // QUIZ WINDOW
     }
 }
 
+function handleButtonClick (event) {
+
+    event.preventDefault;
+    userChoice = event.target.textContent; // store the user's choice from the clicked button
+
+    console.log("User chose: " + userChoice);
+    
+}
 
 // function verifyAnswer(userChoice, correctAnswer) { // VALIDATING USER ANSWER
 
@@ -323,4 +331,4 @@ startBtn.addEventListener("click", function () {
 
 // clearScoreBoardBtn.addEventListener("click", clearScores);
 
-choiceList.addEventListener("click", );
+choiceList.addEventListener("click", handleButtonClick);
