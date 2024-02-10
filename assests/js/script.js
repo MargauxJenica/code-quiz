@@ -4,29 +4,28 @@
 
 var startPage = document.querySelector(".startPage");
 var startBtn = document.getElementById("start-Btn");
-// var scoreBoardBtn = document.getElementById("scoreBoard-Btn");
+var scoreBoardBtn = document.getElementById("scoreBoard-Btn");
 var quizWindow = document.getElementById("quiz-Window");
-// var countdown = document.getElementById("timeCount");
 var topScoreBoard = document.querySelector(".topScoreBoard");
 var exitScoreBoardBtn = document.getElementById("exitScoreBoard-Btn");
-// var clearScoreBoardBtn = document.getElementById("clearScoreBoard-Btn");
-// var verifyUserChoice = document.getElementById("verifyUserChoice");
+var clearScoreBoardBtn = document.getElementById("clearScoreBoard-Btn");
+var verifyUserChoice = document.getElementById("verifyUserChoice");
 var currentQuestion = document.getElementById("currentQuestion");
 var choiceList = document.getElementById("choiceList");
-// var userScore = document.getElementById("userScore");
+var userScore = document.getElementById("userScore");
 var timerCount = document.getElementById("timerCount");
 var currentScore = document.getElementById("currentScore");
 var quizResultsWindow = document.querySelector(".quizResults-Window");
-// var userInitialsInput = document.getElementById("userInitials");
-// var submitInitialsBtn = document.getElementById("submitInitials-Btn");
-// var topScoresList = document.getElementById("topScores");
+var userInitialsInput = document.getElementById("userInitials");
+var submitInitialsBtn = document.getElementById("submitInitials-Btn");
 
 
 //------------------------------------------------------------------------------//
 //                         Variables and Arrays                                 //
 //------------------------------------------------------------------------------//
 
-var userChoice; 
+var userChoice;
+var correctAnswer; 
 var time = 60;
 var scoreCount = 0;
 var quizIndex = 0;
@@ -87,7 +86,7 @@ function startTimer() { // TIMER
         if (time <= 0) {
 
             clearInterval(timerInterval);
-            // resultsWindow();
+            resultsWindow();
 
         } else { // Decrement time only if it's greater than 0
 
@@ -118,6 +117,10 @@ function displayQuiz() { // QUIZ WINDOW
 
         console.log(currentQuestion);
 
+        // set correctAnswer
+        correctAnswer = quizQuestions[quizIndex].answer;
+
+        console.log("The correct answer is " + correctAnswer);
 
         choiceList.innerHTML = ''; // clear exisiting multiple choice options
 
@@ -137,7 +140,7 @@ function displayQuiz() { // QUIZ WINDOW
 
     } else {
 
-        //resultsWindow(); // All questions have been displayed
+        resultsWindow(); // All questions have been displayed
 
         console.log('All questions displayed');
     }
@@ -145,173 +148,151 @@ function displayQuiz() { // QUIZ WINDOW
 
 function handleButtonClick (event) {
 
-    event.preventDefault;
-    userChoice = event.target.textContent; // store the user's choice from the clicked button
+    if (userChoice.matches("button")) { // FIX THIS BUTTON
 
-    console.log("User chose: " + userChoice);
+        event.preventDefault;
+        userChoice = event.target.textContent; // store the user's choice from the clicked button
     
+        console.log("User chose: " + userChoice);
+        console.log ("Correct Answer: " + correctAnswer);
+    
+        verifyAnswer(userChoice, correctAnswer);
+
+    }
+
+
+
 }
 
-// function verifyAnswer(userChoice, correctAnswer) { // VALIDATING USER ANSWER
+function verifyAnswer(userChose, questionAnswer) { // VALIDATING USER ANSWER
 
-//     if (userChoice === correctAnswer) {
-//         console.log("Correct!");
+    if (userChoice === correctAnswer) {
+        console.log("Correct!");
 
-//         verifyUserChoice.textContent = "Correct";
+        scoreCount++;
 
-//         scoreCount++;
+        currentScore.textContent = scoreCount;
+        console.log("The score is " + scoreCount);
 
-//         currentScore.textContent = scoreCount;
-//         console.log("The score is " + scoreCount);
+        displayQuiz(); // call to display next question
+      
+    } else {
+        console.log("Incorrect!");
         
-//     } else {
-//         console.log("Incorrect!");
-        
-//         verifyUserChoice.textContent = "Incorrect";
+        verifyUserChoice.textContent = "Incorrect";
 
-//         time = Math.max(0, time - 10); // Subtract 10 seconds from the timer
-//         console.log("Time subtracted. Current time: " + time);
+        time = Math.max(0, time - 10); // subtract 10 seconds from the timer
+        console.log("Time subtracted. Current time: " + time);
+
+        setTimeout(function () {
+
+            verifyUserChoice.textContent = ""; // clear the "Incorrect" message
+
+            displayQuiz();
+
+        }, 500);
         
-//     };
+    };
    
+}
+
+function resultsWindow() { // USER SAVING THEIR TEST RESULTS
+
+    if (quizWindow.style.display === "block") {
+
+        quizWindow.style.display = "none";
+
+        quizResultsWindow.style.display = "block";
+
+    }
+
+    userScore.textContent = scoreCount;
+}
+
+function handleInitialsSubmit() {
+    var userInitials = userInitialsInput.value.trim();
+
+    if (userInitials !== "") {
+        // create an object to store user data
+        var userData = {
+            initials: userInitials,
+            score: scoreCount
+        };
+
+        // retrieve existing scores from localStorage
+        var existingScores = JSON.parse(localStorage.getItem("scores")) || [];
+
+        // add the new user data to the array
+        existingScores.push(userData);
+
+        // save the updated scores array to localStorage
+        localStorage.setItem("scores", JSON.stringify(existingScores));
+
+        displayScoreBoard();
+
+    } else {
+        alert("Please enter valid initials (i.e., ABC)");
+    };
+}
+
+function displayScoreBoard() {
     
-//     displayQuiz(); // call to display next question
-// };
-
-// function resultsWindow() { // USER SAVING THEIR TEST RESULTS
-
-//     showResults();
-
-//     userScore.textContent = scoreCount;
-
-//     submitInitialsBtn.addEventListener("click", function () {
-//         var userInitials = userInitialsInput.value.trim();
-
-//         resetQuiz();
-
-//         if (userInitials !== "") {
-//             // Create an object to store user data
-//             var userData = {
-//                 initials: userInitials,
-//                 score: scoreCount
-//             };
-
-//             // Retrieve existing scores from localStorage
-//             var existingScores = JSON.parse(localStorage.getItem("scores")) || [];
-
-//             // Add the new user data to the array
-//             existingScores.push(userData);
-
-//             // Save the updated scores array to localStorage
-//             localStorage.setItem("scores", JSON.stringify(existingScores));
-
-            
-
-//             displayScoreBoard();
-//         } else {
-//             alert("Please enter valid initials (i.e., ABC)");
-//         }
-//     });
-// };
-
-// function displayScoreBoard() {
-
-//     showScoreBoard();
-
-//     // Retrieve scores from local storage
-//     var scores = JSON.parse(localStorage.getItem("scores")) || [];
-
-//     // Sort scores in descending order
-//     scores.sort(function (a, b) {
-//         return b.score - a.score;
-//     });
-
-//     // Display the top 5 scores
-//     var topScoresList = document.getElementById("topScores");
-//     topScoresList.innerHTML = ''; // Clear existing scores
-
-//     for (var i = 0; i < Math.min(5, scores.length); i++) {
-//         var scoreLi = document.createElement("li");
-//         scoreLi.textContent = scores[i].initials + ":   " + scores[i].score;
-//         topScoresList.appendChild(scoreLi);
-//     }
-
-//     console.log("in displayScoreBoard function");
-// };
-
-// function resetQuiz() {
-
-//     // Reset variables to their initial values
-//     scoreCount = 0;
-//     quizIndex = 0;
-
-//     // Reset UI elements
-//     currentScore.textContent = scoreCount;
-
-// };
-
-// function clearScores() {
-
-//     localStorage.removeItem("scores");
-
-//     // Optionally, you can clear the displayed scores in your UI if needed.
-//     var topScoresList = document.getElementById("topScores");
-
-//     topScoresList.innerHTML = '';
-
-// };
-
-// function showQuizWindow() {
-
-//     if (quizWindow.style.display === "none"){
-
-//         startPage.style.display = "none";
-
-//         quizResultsWindow.style.display = "none";
-
-//         topScoreBoard.style.display = "none";
-
-//         quizWindow.style.display = "block";
-
-//         console.log('in showQuizWindow function');
-
-//     };
-// };
-
-// function showResults() {
-
-//     if (quizResultsWindow.style.display === "none"){
-
-//         startPage.style.display = "none";
-
-//         quizWindow.style.display = "none";
-
-//         topScoreBoard.style.display = "none";
-
-//         quizResultsWindow.style.display = "block";
+    if (topScoreBoard.style.display === "none" || startPage.style.display === "block") {
         
-//         console.log('in showResults function');
-//     };
-
-// };
-
-// function showScoreBoard() {
-
-//     if (topScoreBoard.style.display === "none"){
-
-//         startPage.style.display = "none";
-
-//         quizWindow.style.display = "none";
-
-//         quizResultsWindow.style.display = "none";
-
-//         topScoreBoard.style.display = "block";
+        quizResultsWindow.style.display = "none";
         
-//         console.log('in showScoreBoard function');
-//     };
+        startPage.style.display = "none";
 
-// };
+        topScoreBoard.style.display = "block";
+    }
+    
+    // Retrieve scores from local storage
+    var scores = JSON.parse(localStorage.getItem("scores")) || [];
+    
+    // Sort scores in descending order
+    scores.sort(function (a, b) {
+        return b.score - a.score;
+    });
+    
+    // Display the top 5 scores
+    var topScoresList = document.getElementById("topScores");
+    topScoresList.innerHTML = ''; // Clear existing scores
+    
+    for (var i = 0; i < Math.min(5, scores.length); i++) {
+        var scoreLi = document.createElement("li");
+        scoreLi.textContent = scores[i].initials + ":   " + scores[i].score;
+        topScoresList.appendChild(scoreLi);
+    }
+    
+    console.log("in displayScoreBoard function");
+    
+    resetQuiz();
+}
 
+function resetQuiz() {
+
+    // reset variables to their initial values
+    scoreCount = 0;
+    quizIndex = 0;
+    time = 60;
+
+    // reset currentScore elements
+    currentScore.textContent = scoreCount;
+    
+    // clear user input field for initials
+    userInitialsInput.value = "";
+}
+
+function clearScores() {
+    
+    localStorage.removeItem("scores");
+    
+    // Optionally, you can clear the displayed scores in your UI if needed.
+    var topScoresList = document.getElementById("topScores");
+    
+    topScoresList.innerHTML = '';
+    
+}
 //------------------------------------------------------------------------------//
 //                                  Start                                       //
 //------------------------------------------------------------------------------//
@@ -325,10 +306,12 @@ startBtn.addEventListener("click", function () {
     displayQuiz();
 });
 
-// scoreBoardBtn.addEventListener("click", displayScoreBoard);
+scoreBoardBtn.addEventListener("click", displayScoreBoard);
 
-// exitScoreBoardBtn.addEventListener("click", homePage);
+exitScoreBoardBtn.addEventListener("click", homePage);
 
-// clearScoreBoardBtn.addEventListener("click", clearScores);
+clearScoreBoardBtn.addEventListener("click", clearScores);
 
 choiceList.addEventListener("click", handleButtonClick);
+
+submitInitialsBtn.addEventListener("click", handleInitialsSubmit);

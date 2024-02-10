@@ -1,19 +1,64 @@
-/* Class Attributes */
-body,
-html{
+* {
+    font-family: "Noto Sans", "Work Sans", "Oswald";
     margin: 0;
     padding: 0;
 }
-
-header{
+:root {
+    --eggplant: #0f0529;
+    --lilac: #dcd2de;
+    --amethyst: #924dbf;
+    --wiseria: #bc82c4;
+}
+h1 {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    height: 100%;
     width: 100%;
-    padding: 10px;
+    color:azure;
+    font-size: 35px;
+    font-weight: bold;
+    background-color: var(--eggplant);
+}
+body {
+    background-color: var(--lilac);
+}
+main {
+    margin: 30px;
+    color: var(--eggplant);
+}
+h2,
+.quizDetails {
+    padding: 0 0 15px 0;
+}
+h2 {
+    font-size: 35px;
+    font-weight: bold;
+}
+#startPage-Btns {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 35px;
+}
+#scoreBoard-Btn {
+    margin-left: 10px;   
+}
+button {
+    padding: 0 2px 0 2px;
+    color: var(--lilac);
+    background-color: var(--amethyst);
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: var(--wiseria);
+    color: azure;
+    font-weight: bold;
 }
 .quiz-Window {
     align-items: center;
     text-align: center;
 }
-
 /* ID Attributes*/
 #timerCount {
     display: inline;
@@ -33,20 +78,10 @@ header{
 }
 
 #choiceList button {
-    /* display: block; */
-    text-align: center;
-    height: 50%;
-    width: 50%;
-    border-radius: 5px;
-    border: 2px solid purple;
-    cursor: pointer;
+    width: auto;
+    display: block;
 }
 
-#choiceList button:hover {
-    background-color: rgba(201, 129, 201, 0.676);
-    color: white;
-    font-weight: bold;
-}
-#topScores {
-    list-style-type: ;
-}
+/* #topScores {
+
+} */
