@@ -13,7 +13,17 @@ For this project I created a multiple choice coding quiz webpage.
 Static webpages are not common sites you will see nowadays. Most of today's webpages are dynamic and interactive. Creating this coding quiz webpage was an excellent project to pracitce building and styling modern day websites.    
 
 ## Final Product
-![Online quiz that tests your coding knowledge](./assets/images/)
+### Start Page
+![Online quiz start page](./assests/images/startPage.png)
 
+### Quiz Windows
+![Quiz Window](./assests/images/quizWindow1.png)
+![Quiz Window](./assests/images/quizWindow2.png)
 
-## [Take My Code Quiz](https://margauxjenica.github.io/code-quiz/)
+### Initials Input
+![Intials Input Window](./assests/images/initialsInput.png)
+
+### Score Board
+![Score Board](./assests/images/scoreBoard.png)
+
+## [Take My Code Quiz!](https://margauxjenica.github.io/code-quiz/)

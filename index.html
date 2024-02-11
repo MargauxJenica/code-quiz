@@ -32,10 +32,14 @@
         
         <!-- Quiz Window -->
         <div id="quiz-Window">
+            <div id="scoreTimeKeeper">
 
-            <p>TIME: <span id="timerCount"></span> </p>
-            <p> SCORE: <span id="currentScore">0</span> </p>
-            <h3 id="currentQuestion"> <!-- question displayed here --> </h3>
+                <p id="score"> SCORE: <span id="currentScore">0</span> </p>
+                <p id="time">TIME: <span id="timerCount"> </span> </p>
+
+            </div>
+            
+            <p id="currentQuestion"> <!-- question displayed here --> </p>
 
             <!-- Multiple Choice Options -->
             <ul id="choiceList">
@@ -63,10 +67,15 @@
 
         <div class="topScoreBoard">
 
-            <h4>Top Score Board</h4>
+            <h4>TOP SCORES</h4>
             <ol id="topScores"></ol>
-            <button id="exitScoreBoard-Btn">Return to Homepage</button>
-            <button id="clearScoreBoard-Btn">Clear</button>
+            <div class="endPage-Btns">
+
+                <button id="exitScoreBoard-Btn">Return to Homepage</button>
+                <button id="clearScoreBoard-Btn">Clear</button>
+
+            </div>
+
 
         </div>
     </main>

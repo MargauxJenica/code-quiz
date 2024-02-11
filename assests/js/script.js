@@ -148,19 +148,13 @@ function displayQuiz() { // QUIZ WINDOW
 
 function handleButtonClick (event) {
 
-    if (userChoice.matches("button")) { // FIX THIS BUTTON
-
-        event.preventDefault;
+        event.preventDefault();
         userChoice = event.target.textContent; // store the user's choice from the clicked button
     
-        console.log("User chose: " + userChoice);
+        console.log("User chose = " + userChoice);
         console.log ("Correct Answer: " + correctAnswer);
     
         verifyAnswer(userChoice, correctAnswer);
-
-    }
-
-
 
 }
 
@@ -202,7 +196,7 @@ function resultsWindow() { // USER SAVING THEIR TEST RESULTS
 
         quizWindow.style.display = "none";
 
-        quizResultsWindow.style.display = "block";
+        quizResultsWindow.style.display = "flex";
 
     }
 
@@ -243,7 +237,7 @@ function displayScoreBoard() {
         
         startPage.style.display = "none";
 
-        topScoreBoard.style.display = "block";
+        topScoreBoard.style.display = "flex";
     }
     
     // Retrieve scores from local storage
@@ -312,6 +306,10 @@ exitScoreBoardBtn.addEventListener("click", homePage);
 
 clearScoreBoardBtn.addEventListener("click", clearScores);
 
-choiceList.addEventListener("click", handleButtonClick);
+choiceList.addEventListener("click", function(event) {
+    if (event.target.tagName === "BUTTON") {
+        handleButtonClick(event);
+    }
+});
 
 submitInitialsBtn.addEventListener("click", handleInitialsSubmit);
