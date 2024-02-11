@@ -14,16 +14,16 @@ Static webpages are not common sites you will see nowadays. Most of today's webp
 
 ## Final Product
 ### Start Page
-![Online quiz start page](./assests/images/startPage.png)
+![Online quiz start page](./assests/images/startPage.png "Start Page")
 
 ### Quiz Windows
-![Quiz Window](./assests/images/quizWindow1.png)
-![Quiz Window](./assests/images/quizWindow2.png)
+![Quiz Window](./assests/images/quizWindow1.png "Quiz Window")
+![Quiz Window](./assests/images/quizWindow2.png "Quiz Window and Incorrect Asnwer")
 
 ### Initials Input
-![Intials Input Window](./assests/images/initialsInput.png)
+![Intials Input Window](./assests/images/initialsInput.png "Initials Input Page")
 
 ### Score Board
-![Score Board](./assests/images/scoreBoard.png)
+![Score Board](./assests/images/scoreBoard.png "Score Board")
 
 ## [Take My Code Quiz!](https://margauxjenica.github.io/code-quiz/)
